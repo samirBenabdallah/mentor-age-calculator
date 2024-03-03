@@ -1,0 +1,155 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/Poppins-Regular.ttf");
+}
+:root {
+  --font-wieght-400: 400;
+  --font-wieght-800: 800;
+  --font-wieght-700: 700;
+  --White: hsl(0, 0%, 100%);
+  --Off-white: hsl(0, 0%, 94%);
+  --Light-grey: hsl(0, 0%, 86%);
+  --Smokey-grey: hsl(0, 1%, 44%);
+  --Off-black: hsl(0, 0%, 8%);
+  --Purple: hsl(259, 100%, 65%);
+  --Light-red: hsl(0, 100%, 67%);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+  color: var(--Smokey-grey);
+  outline: none;
+}
+.center-f {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--Off-white);
+}
+.calculator {
+  width: 80vh;
+  height: 80vh;
+  padding: 30px;
+  border-radius: 10px 10px 150px;
+  background-color: var(--White);
+}
+.date > * {
+  margin-bottom: 30px;
+}
+.date {
+  justify-content: space-between;
+  display: flex;
+  padding-right: 20%;
+}
+.date > section {
+  margin-right: 20px;
+}
+.date > section::before {
+  position: absolute;
+  transform: translate(0, -100%);
+  z-index: 2;
+  font-size: small;
+  font-weight: var(--font-wieght-700);
+  text-transform: capitalize;
+}
+.date input {
+  padding-left: 10px;
+  width: 80px;
+  height: 40px;
+  font-size: larger;
+  color: black;
+  font-weight: var(--font-wieght-700);
+  border: 0.5px solid var(--Light-grey);
+  border-radius: 5px;
+  position: relative;
+}
+.button {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 4fr 4fr 1fr;
+  grid-template-areas: "after before button";
+}
+.after,
+.before {
+  height: 2px;
+  background-color: var(--Light-grey);
+}
+.after {
+  grid-area: after;
+}
+.before {
+  grid-area: before;
+}
+.button button {
+  border: none;
+  cursor: pointer;
+  background-color: var(--Purple);
+  grid-area: button;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.button button img {
+  width: 60%;
+}
+.result {
+  font-weight: bolder;
+  font-size: x-large;
+}
+.result h1 {
+  color: var(--Purple);
+}
+.result h1::after {
+  margin-left: 30px;
+  font-size: 3.5rem;
+  font-weight: 1900;
+  text-transform: capitalize;
+  color: var(--Off-black);
+}
+.inputDayLabel::before {
+  content: "day";
+}
+.inputMonthLabel::before {
+  content: "month";
+}
+.inputYearLabel::before {
+  content: "year";
+}
+#resultDay::after {
+  content: "days";
+}
+#resultMonth::after {
+  content: "months";
+}
+#resultYear::after {
+  content: "years";
+}
+@media screen and (max-width: 767px) {
+  .calculator {
+    width: calc(100% - 50px);
+  }
+  .button {
+    grid-template-columns: 4fr 1fr 4fr;
+    grid-template-areas: "after button before";
+  }
+}
+@media screen and (max-width: 415px) {
+  .calculator {
+    height: 50vh;
+  }
+  .result h1::after {
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 360px) {
+    .calculator {
+      height: 70vh;
+    }
+  }
